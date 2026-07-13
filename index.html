@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script>
+    (function() {
+      var needsPolyfill = (function() {
+        try {
+          if (typeof crypto === "undefined" || typeof crypto.randomUUID !== "function") return true;
+          if (typeof Object.hasOwn !== "function") return true;
+          if (typeof [].at !== "function") return true;
+          if (typeof [].findLast !== "function") return true;
+          return false;
+        } catch (e) { return true }
+      })();
+      if (needsPolyfill) {
+        document.write('<script src="https://lf-miaoda-static.feishucdn.com/app_17a19xst4pd/2/client/assets/polyfills.js"><\/script>');
+      }
+    })();
+  </script>
+  <script>
+    window.appId = "app_17a19xst4pd";
+    window.userId = "";
+    window.tenantId = "3551587810";
+    window.userName = "";
+    window.csrfToken = "303b281f4a302d97bc332f32e032a11ea84a207a527287bb4ee27235e6d4eb41";
+    window.ENVIRONMENT = "online";
+    const appInfo = {
+      name: "FutureServer-Minecraft服务器",
+      avatar: "https://miaoda.feishu.cn/aily/api/v1/files/static/400616f281e5cd7a65cb0af5bedb2dbdc0aed1536441fd5e27d0543b6de55369_ve_miaoda?x-tos-process=image%2Fresize%2Cw_120%2Ch_120%2Cm_fixed%7Crounded-corners%2Cr_14%2Fformat%2Cpng",
+      description: "展示Minecraft服务器玩法、建筑、规则与开源插件的专属站点，玩家可快速获取服务器IP，便捷加入游戏。",
+    };
+    if (appInfo.name) {
+      window._appInfo = appInfo;
+    }
+  </script>
+  <script>
+    (function(g) {
+      if (!window[g]) { var q = [];
+        window[g] = function() { q.push([].slice.call(arguments)); };
+        window[g].q = q; }
+      window.__slardarErrBuf = window.__slardarErrBuf || [];
+      var ref = document.referrer || '';
+
+      function _cap(err) {
+        if (window[g] && !window[g].q) {
+          window[g]('captureException', err instanceof Error ? err : new Error(String(err)), { source: 'runtime-error', referrer: ref });
+        } else {
+          (window.__slardarErrBuf = window.__slardarErrBuf || []).push(err);
+        }
+      }
+      window.addEventListener('error', function(e) {
+        if (e.error == null && e.target instanceof Element) {
+          var t = e.target,
+                  url = t.src || t.href || '';
+          if (url) window[g]('captureException', new Error('Resource load failed: ' + url), { team: 'miaoda-sdk', source: 'resource-error', resourceType: t.tagName.toLowerCase(), resourceUrl: url, referrer: ref });
+          return;
+        }
+        if (e.error != null) {
+          var err = e.error;
+          if (e.filename && typeof err.stack === 'string' && err.stack.indexOf(e.filename) < 0) {
+            try { err.stack += '\n    at ' + e.filename + ':' + (e.lineno || 0) + ':' + (e.colno || 0); } catch (ex) {}
+          }
+          _cap(err);
+        } else {
+          var msg = e.message || 'Script error';
+          var err = new Error(msg);
+          if (e.filename) err.stack = msg + '\n    at ' + e.filename + ':' + (e.lineno || 0) + ':' + (e.colno || 0);
+          _cap(err);
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason != null) _cap(e.reason instanceof Error ? e.reason : new Error(String(e.reason)));
+      });
+    })('KSlardarWeb');
+  </script>
+  <script>
+    const slardarScript = document.createElement('script');
+    slardarScript.src = 'https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/browser.cn.js?bid=apaas_miaoda&globalName=KSlardarWeb';
+    slardarScript.crossOrigin = 'anonymous';
+    slardarScript.onload = function() {
+      if (window.KSlardarWeb) {
+        window.KSlardarWeb('context.merge', {
+          tenantId: window.tenantId ?? '',
+          appId: window.appId ?? '',
+        });
+        window.KSlardarWeb('init', {
+          bid: 'apaas_miaoda',
+          env: window.ENVIRONMENT || 'online',
+          userId: window.userId ?? '',
+        });
+        window.KSlardarWeb('start');
+        var buf = window.__slardarErrBuf || [];
+        window.__slardarErrBuf = [];
+        buf.forEach(function(err) {
+          window.KSlardarWeb('captureException', err instanceof Error ? err : new Error(String(err)), { source: 'pre-sdk-error', referrer: document.referrer || '' });
+        });
+      }
+    };
+    slardarScript.onerror = function() {
+      console.warn('Failed to load Slardar script');
+    };
+    document.head.appendChild(slardarScript);
+  </script>
+  <script src="https://sf3-scmcdn-cn.feishucdn.com/obj/unpkg/byted/performance/0.1.2/dist/performance.iife.js" crossorigin="anonymous" defer="defer">
+  </script>
+  <script>
+    (function(win, export_obj) {
+      win['LogAnalyticsObject'] = export_obj;
+      if (!win[export_obj]) {
+        function _collect() { _collect.q.push(arguments); }
+        _collect.q = _collect.q || [];
+        win[export_obj] = _collect;
+      }
+      win[export_obj].l = +new Date();
+    })(window, 'collectEvent');
+
+    const teaScript = document.createElement('script');
+    teaScript.src = 'https://lf3-cdn-tos.bytescm.com/obj/static/log-sdk/collect/5.1/collect.js';
+    teaScript.crossOrigin = 'anonymous';
+    teaScript.async = true;
+    teaScript.onerror = function() {
+      console.warn('Failed to load Tea script');
+    };
+    document.head.appendChild(teaScript);
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FutureServer-Minecraft服务器</title>
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+    html {
+      scroll-behavior: smooth
+    }
+    body {
+      font-family: 'Courier New', Consolas, Monaco, 'Microsoft YaHei', 'PingFang SC', monospace;
+      background-color: #2e2a26;
+      color: #e8dfc8;
+      line-height: 1.6;
+      image-rendering: pixelated;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: grayscale
+    }
+    img {
+      image-rendering: pixelated;
+      display: block;
+      max-width: 100%
+    }
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+    ul {
+      list-style: none
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: 0 0;
+      color: inherit
+    }
+    :root {
+      --bg-dark: #2e2a26;
+      --bg-card: #3d3730;
+      --bg-card-hover: #4a4238;
+      --text-primary: #e8dfc8;
+      --text-muted: #9a8f7a;
+      --grass-green: #5a8f35;
+      --grass-green-dark: #4a7a2a;
+      --grass-green-light: #6ba840;
+      --dirt-brown: #6b5236;
+      --dirt-brown-dark: #5a4428;
+      --dirt-brown-light: #8b6b48;
+      --stone-gray: #5a5550;
+      --stone-gray-light: #7a7570;
+      --border-dark: #1e1c18;
+      --border-light: #7a6b55;
+      --gold: #d4a846;
+      --redstone: #c44a3c;
+      --diamond: #4ab0c4
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+    .section-title-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background-color: rgba(90, 143, 53, .2);
+      border: 2px solid var(--grass-green);
+      color: var(--grass-green-light);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: 2px
+    }
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto
+    }
+    .text-center {
+      text-align: center
+    }
+    .mb-14 {
+      margin-bottom: 56px
+    }
+    .pixel-border {
+      border: 4px solid var(--dirt-brown);
+      position: relative
+    }
+    .pixel-border::after,
+    .pixel-border::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--grass-green)
+    }
+    .pixel-border::before {
+      top: 0;
+      left: 0
+    }
+    .pixel-border::after {
+      bottom: 0;
+      right: 0
+    }
+    .pixel-corners {
+      position: relative
+    }
+    .pixel-corners .corner {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--grass-green)
+    }
+    .pixel-corners .corner-tl {
+      top: 0;
+      left: 0
+    }
+    .pixel-corners .corner-tr {
+      top: 0;
+      right: 0
+    }
+    .pixel-corners .corner-bl {
+      bottom: 0;
+      left: 0
+    }
+    .pixel-corners .corner-br {
+      bottom: 0;
+      right: 0
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all .3s ease;
+      background-color: transparent
+    }
+    .header.scrolled {
+      background-color: rgba(46, 42, 38, .95);
+      border-bottom: 4px solid var(--dirt-brown);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .3)
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--grass-green);
+      border: 2px solid var(--dirt-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, .15), inset 0 -2px 0 rgba(0, 0, 0, .2)
+    }
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.5
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 1px
+    }
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+    .nav-link {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all .2s;
+      cursor: pointer
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--dirt-brown)
+    }
+    .nav-link.active {
+      color: var(--grass-green-light);
+      border-bottom-color: var(--grass-green)
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 3px solid var(--dirt-brown-dark);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, .3);
+      transition: all .15s;
+      cursor: pointer;
+      letter-spacing: 1px;
+      user-select: none
+    }
+    .btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .3)
+    }
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 rgba(0, 0, 0, .3)
+    }
+    .btn-primary {
+      background-color: var(--grass-green);
+      color: #fff
+    }
+    .btn-primary:hover {
+      background-color: var(--grass-green-light)
+    }
+    .btn-secondary {
+      background-color: var(--dirt-brown);
+      color: var(--text-primary)
+    }
+    .btn-secondary:hover {
+      background-color: var(--dirt-brown-light)
+    }
+    .btn-outline {
+      background-color: rgba(61, 55, 48, .8);
+      color: var(--text-primary);
+      border-color: var(--dirt-brown)
+    }
+    .btn-outline:hover {
+      background-color: var(--bg-card-hover)
+    }
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 18px;
+      border-width: 4px
+    }
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+    .menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      cursor: pointer
+    }
+    .menu-toggle svg {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+    .nav-mobile {
+      display: none;
+      background-color: var(--bg-card);
+      border-top: 4px solid var(--dirt-brown)
+    }
+    .nav-mobile.open {
+      display: block
+    }
+    .nav-mobile .nav-link {
+      display: block;
+      padding: 14px 24px;
+      border-left: 4px solid transparent;
+      border-bottom: none
+    }
+    .nav-mobile .nav-link.active {
+      border-left-color: var(--grass-green);
+      background-color: rgba(90, 143, 53, .1)
+    }
+    .nav-mobile .btn-wrap {
+      padding: 12px 24px 20px
+    }
+    .nav-mobile .btn-wrap .btn {
+      width: 100%
+    }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 64px
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0
+    }
+    .hero-bg svg {
+      width: 100%;
+      height: 100%;
+      display: block
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(46, 42, 38, .7) 0, rgba(46, 42, 38, .5) 40%, rgba(46, 42, 38, .8) 80%, #2e2a26 100%);
+      z-index: 1
+    }
+    .hero-pixel-grid {
+      position: absolute;
+      inset: 0;
+      opacity: .08;
+      background-image: linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+      background-size: 32px 32px;
+      z-index: 1;
+      pointer-events: none
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 24px
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background-color: rgba(107, 82, 54, .8);
+      border: 2px solid var(--grass-green);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 28px
+    }
+    .hero-tag svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--grass-green-light);
+      fill: none;
+      stroke-width: 2
+    }
+    .hero-tag .dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--grass-green-light);
+      display: inline-block
+    }
+    .hero-title {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: 4px;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+      line-height: 1.1
+    }
+    .hero-title .green {
+      color: var(--grass-green-light)
+    }
+    .hero-subtitle {
+      font-size: 22px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      line-height: 1.6
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px
+    }
+    .hero-ip-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 28px;
+      background-color: rgba(61, 55, 48, .9);
+      border: 4px solid var(--dirt-brown);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .3)
+    }
+    .hero-ip-label {
+      font-size: 14px;
+      color: var(--text-muted)
+    }
+    .hero-ip-address {
+      font-family: 'Courier New', Consolas, monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--grass-green-light);
+      letter-spacing: 1px
+    }
+    .copy-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color .2s;
+      border: none;
+      background: 0 0;
+      padding: 0
+    }
+    .copy-btn:hover {
+      color: var(--grass-green-light)
+    }
+    .copy-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+    .copy-btn.copied {
+      color: var(--grass-green-light)
+    }
+    .section {
+      padding: 80px 0;
+      position: relative
+    }
+    .section-alt {
+      background: linear-gradient(to bottom, var(--bg-dark) 0, #332d26 50%, var(--bg-dark) 100%)
+    }
+    .gameplay-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px
+    }
+    .gameplay-card {
+      background-color: var(--bg-card);
+      border: 4px solid var(--dirt-brown);
+      padding: 32px;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .2)
+    }
+    .gameplay-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 6px 10px 0 rgba(0, 0, 0, .25)
+    }
+    .gameplay-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 24px;
+      background-color: rgba(90, 143, 53, .2);
+      border: 2px solid var(--grass-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color .2s
+    }
+    .gameplay-card:hover .gameplay-icon {
+      background-color: rgba(90, 143, 53, .35)
+    }
+    .gameplay-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--grass-green-light);
+      fill: none;
+      stroke-width: 2
+    }
+    .gameplay-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px
+    }
+    .gameplay-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7
+    }
+    .gameplay-placeholder {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 2px dashed var(--stone-gray)
+    }
+    .placeholder-bar {
+      height: 12px;
+      background-color: var(--bg-dark);
+      margin-bottom: 8px
+    }
+    .placeholder-bar.w-3-4 {
+      width: 75%
+    }
+    .placeholder-bar.w-1-2 {
+      width: 50%
+    }
+    .more-placeholder {
+      margin-top: 40px;
+      text-align: center
+    }
+    .more-placeholder-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background-color: var(--bg-card);
+      border: 2px dashed var(--stone-gray);
+      color: var(--text-muted);
+      font-size: 14px
+    }
+    .more-placeholder-box svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+    .buildings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+    .building-card {
+      position: relative;
+      overflow: hidden;
+      border: 4px solid var(--dirt-brown);
+      background-color: var(--bg-card);
+      cursor: pointer;
+      transition: transform .3s;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .2)
+    }
+    .building-card:hover {
+      transform: scale(1.03);
+      box-shadow: 6px 8px 0 rgba(0, 0, 0, .25)
+    }
+    .building-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+      background-color: #2e2a26;
+    }
+    .building-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      image-rendering: pixelated;
+    }
+    .building-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(46, 42, 38, .9) 0, rgba(46, 42, 38, .3) 50%, transparent 100%)
+    }
+    .building-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px
+    }
+    .building-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px
+    }
+    .building-author {
+      font-size: 12px;
+      color: var(--text-muted)
+    }
+    .building-corner {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(232, 223, 200, .5);
+      z-index: 2
+    }
+    .building-corner.tl {
+      top: 8px;
+      left: 8px
+    }
+    .building-corner.tr {
+      top: 8px;
+      right: 8px
+    }
+    .view-more-btn {
+      margin-top: 48px;
+      text-align: center
+    }
+    .view-more-btn .btn {
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--dirt-brown)
+    }
+    .view-more-btn .btn:hover {
+      background-color: var(--bg-card-hover)
+    }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+    .rule-card {
+      padding: 28px;
+      border: 4px solid;
+      position: relative
+    }
+    .rule-card.green {
+      background-color: rgba(90, 143, 53, .1);
+      border-color: var(--grass-green)
+    }
+    .rule-card.brown {
+      background-color: rgba(107, 82, 54, .3);
+      border-color: var(--dirt-brown-light)
+    }
+    .rule-card.red {
+      background-color: rgba(196, 74, 60, .1);
+      border-color: var(--redstone)
+    }
+    .rule-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+    .rule-card.green .rule-icon {
+      background-color: rgba(90, 143, 53, .15);
+      border-color: var(--grass-green)
+    }
+    .rule-card.brown .rule-icon {
+      background-color: rgba(107, 82, 54, .3);
+      border-color: var(--dirt-brown-light)
+    }
+    .rule-card.red .rule-icon {
+      background-color: rgba(196, 74, 60, .15);
+      border-color: var(--redstone)
+    }
+    .rule-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke-width: 2
+    }
+    .rule-card.green .rule-icon svg {
+      stroke: var(--grass-green-light)
+    }
+    .rule-card.brown .rule-icon svg {
+      stroke: var(--dirt-brown-light)
+    }
+    .rule-card.red .rule-icon svg {
+      stroke: var(--redstone)
+    }
+    .rule-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px
+    }
+    .rule-card.green .rule-title {
+      color: var(--grass-green-light)
+    }
+    .rule-card.brown .rule-title {
+      color: var(--dirt-brown-light)
+    }
+    .rule-card.red .rule-title {
+      color: var(--redstone)
+    }
+    .rule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px
+    }
+    .rule-bullet {
+      margin-top: 7px;
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+      border: 1px solid
+    }
+    .rule-card.green .rule-bullet {
+      background-color: rgba(90, 143, 53, .15);
+      border-color: var(--grass-green)
+    }
+    .rule-card.brown .rule-bullet {
+      background-color: rgba(107, 82, 54, .3);
+      border-color: var(--dirt-brown-light)
+    }
+    .rule-card.red .rule-bullet {
+      background-color: rgba(196, 74, 60, .15);
+      border-color: var(--redstone)
+    }
+    .rule-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7
+    }
+    .rule-placeholder {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 2px dashed var(--stone-gray)
+    }
+    .footer {
+      background-color: var(--bg-card);
+      border-top: 4px solid var(--dirt-brown)
+    }
+    .footer-grass {
+      width: 100%;
+      height: 12px;
+      background-color: var(--grass-green);
+      border-bottom: 2px solid var(--dirt-brown)
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px
+    }
+    .footer-brand-logo .logo-icon {
+      width: 40px;
+      height: 40px
+    }
+    .footer-brand-logo .logo-text {
+      font-size: 20px
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8
+    }
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+    .footer-links li {
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color .2s
+    }
+    .footer-links li:hover {
+      color: var(--grass-green-light)
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted)
+    }
+    .footer-contact-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--grass-green-light);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0
+    }
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 2px solid var(--stone-gray);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      text-align: center
+    }
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--text-muted)
+    }
+    .footer-disclaimer {
+      font-size: 12px;
+      color: var(--text-muted)
+    }
+    @media (max-width:900px) {
+      .buildings-grid,
+      .footer-grid,
+      .gameplay-grid,
+      .plugins-grid,
+      .rules-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+      .hero-title {
+        font-size: 42px
+      }
+      .hero-subtitle {
+        font-size: 18px
+      }
+      .section-title {
+        font-size: 28px
+      }
+    }
+    @media (max-width:768px) {
+      .nav-desktop {
+        display: none
+      }
+      .header-inner .btn {
+        display: none
+      }
+      .menu-toggle {
+        display: flex
+      }
+      .hero-title {
+        font-size: 36px;
+        letter-spacing: 2px
+      }
+      .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px
+      }
+      .hero-buttons {
+        margin-bottom: 32px
+      }
+      .hero-ip-address {
+        font-size: 18px
+      }
+      .btn-lg {
+        padding: 12px 24px;
+        font-size: 16px
+      }
+      .section {
+        padding: 56px 0
+      }
+      .section-title {
+        font-size: 24px
+      }
+      .section-subtitle {
+        font-size: 15px
+      }
+      .buildings-grid,
+      .footer-grid,
+      .gameplay-grid {
+        grid-template-columns: 1fr
+      }
+      .footer-bottom {
+        gap: 12px
+      }
+    }
+    @media (max-width:480px) {
+      .hero-title {
+        font-size: 28px
+      }
+      .hero-tag {
+        font-size: 12px;
+        padding: 6px 12px
+      }
+      .hero-ip-box {
+        flex-direction: column;
+        gap: 6px;
+        padding: 12px 20px
+      }
+    }
+  </style>
+  <meta property="og:title" content="FutureServer-Minecraft服务器">
+  <meta property="og:description" content="展示Minecraft服务器玩法、建筑、规则与开源插件的专属站点，玩家可快速获取服务器IP，便捷加入游戏。">
+  <meta property="og:image" content="https://miaoda.feishu.cn/aily/api/v1/files/static/400616f281e5cd7a65cb0af5bedb2dbdc0aed1536441fd5e27d0543b6de55369_ve_miaoda?x-tos-process=image%2Fresize%2Cw_120%2Ch_120%2Cm_fixed%7Crounded-corners%2Cr_14%2Fformat%2Cpng">
+  <meta name="description" content="展示Minecraft服务器玩法、建筑、规则与开源插件的专属站点，玩家可快速获取服务器IP，便捷加入游戏。">
+  <link rel="icon" href="https://miaoda.feishu.cn/aily/api/v1/files/static/400616f281e5cd7a65cb0af5bedb2dbdc0aed1536441fd5e27d0543b6de55369_ve_miaoda?x-tos-process=image%2Fresize%2Cw_120%2Ch_120%2Cm_fixed%7Crounded-corners%2Cr_14%2Fformat%2Cpng">
+</head>
+<body>
+<header class="header" id="header">
+  <div class="header-inner">
+    <a class="logo" href="#hero" onclick="scrollToSection('hero')">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M14.79 10.62L3.5 21.91l-1.41-1.41L13.38 9.21"/>
+          <path d="M16.5 8.5l2 2 4-4-2-2-4 4z"/>
+          <path d="M12.5 12.5l-2-2L2 19l2 2 8.5-8.5z"/>
+        </svg>
+      </div>
+      <span class="logo-text">FutureServer</span>
+    </a>
+    <nav class="nav-desktop" id="navDesktop">
+      <a class="nav-link active" href="#hero" data-section="hero">首页</a>
+      <a class="nav-link" href="#gameplay" data-section="gameplay">服务器玩法</a>
+      <a class="nav-link" href="#buildings" data-section="buildings">服务器建筑</a>
+      <a class="nav-link" href="#rules" data-section="rules">服务器规则</a>
+    </nav>
+    <button class="btn btn-primary" onclick="copyIP()">加入服务器</button>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()" aria-label="菜单">
+      <svg id="menuIcon" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="closeIcon" viewBox="0 0 24 24" style="display:none">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a class="nav-link active" href="#hero" data-section="hero" onclick="closeMobileMenu()">首页</a>
+    <a class="nav-link" href="#gameplay" data-section="gameplay" onclick="closeMobileMenu()">服务器玩法</a>
+    <a class="nav-link" href="#buildings" data-section="buildings" onclick="closeMobileMenu()">服务器建筑</a>
+    <a class="nav-link" href="#rules" data-section="rules" onclick="closeMobileMenu()">服务器规则</a>
+    <div class="btn-wrap">
+      <button class="btn btn-primary" onclick="copyIP(); closeMobileMenu();">加入服务器</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#4a6b8a"/>
+          <stop offset="40%" style="stop-color:#6b8fa8"/>
+          <stop offset="70%" style="stop-color:#d4a876"/>
+          <stop offset="100%" style="stop-color:#c48a5a"/>
+        </linearGradient>
+        <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffe4a0"/>
+          <stop offset="100%" style="stop-color:#ffb347"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="600" fill="url(#skyGrad)"/>
+      <circle cx="900" cy="200" r="60" fill="url(#sunGrad)" opacity="0.9"/>
+      <circle cx="900" cy="200" r="80" fill="#ffd080" opacity="0.2"/>
+      <rect x="100" y="80" width="80" height="16" fill="#e8dfc8" opacity="0.6"/>
+      <rect x="120" y="64" width="48" height="16" fill="#e8dfc8" opacity="0.6"/>
+      <rect x="500" y="120" width="96" height="16" fill="#e8dfc8" opacity="0.5"/>
+      <rect x="520" y="104" width="60" height="16" fill="#e8dfc8" opacity="0.5"/>
+      <rect x="1050" y="90" width="72" height="16" fill="#e8dfc8" opacity="0.5"/>
+      <rect x="1070" y="74" width="40" height="16" fill="#e8dfc8" opacity="0.5"/>
+      <rect x="0" y="320" width="200" height="40" fill="#5a5550"/>
+      <rect x="20" y="280" width="160" height="40" fill="#6a6560"/>
+      <rect x="50" y="240" width="100" height="40" fill="#7a7570"/>
+      <rect x="70" y="200" width="60" height="40" fill="#8a8580"/>
+      <rect x="80" y="184" width="40" height="16" fill="#e8dfc8" opacity="0.8"/>
+      <rect x="250" y="340" width="240" height="40" fill="#5a5550"/>
+      <rect x="280" y="300" width="180" height="40" fill="#6a6560"/>
+      <rect x="310" y="260" width="120" height="40" fill="#7a7570"/>
+      <rect x="340" y="220" width="60" height="40" fill="#8a8580"/>
+      <rect x="350" y="204" width="40" height="16" fill="#e8dfc8" opacity="0.8"/>
+      <rect x="600" y="300" width="300" height="40" fill="#5a5550"/>
+      <rect x="630" y="260" width="240" height="40" fill="#6a6560"/>
+      <rect x="670" y="220" width="160" height="40" fill="#7a7570"/>
+      <rect x="710" y="180" width="80" height="40" fill="#8a8580"/>
+      <rect x="720" y="164" width="60" height="16" fill="#e8dfc8" opacity="0.8"/>
+      <rect x="950" y="330" width="250" height="40" fill="#5a5550"/>
+      <rect x="980" y="290" width="190" height="40" fill="#6a6560"/>
+      <rect x="1010" y="250" width="130" height="40" fill="#7a7570"/>
+      <rect x="0" y="380" width="1200" height="220" fill="#6b5236"/>
+      <rect x="0" y="372" width="1200" height="12" fill="#5a8f35"/>
+      <rect x="0" y="368" width="1200" height="4" fill="#6ba840"/>
+      <rect x="0" y="392" width="120" height="20" fill="#7a5e40" opacity="0.3"/>
+      <rect x="200" y="400" width="80" height="16" fill="#5a4428" opacity="0.3"/>
+      <rect x="400" y="390" width="100" height="24" fill="#7a5e40" opacity="0.2"/>
+      <rect x="650" y="396" width="120" height="18" fill="#5a4428" opacity="0.3"/>
+      <rect x="900" y="388" width="90" height="22" fill="#7a5e40" opacity="0.25"/>
+      <rect x="1100" y="395" width="100" height="20" fill="#5a4428" opacity="0.3"/>
+      <rect x="150" y="332" width="8" height="40" fill="#5a4428"/>
+      <rect x="130" y="300" width="48" height="32" fill="#4a7a2a"/>
+      <rect x="138" y="284" width="32" height="16" fill="#5a8f35"/>
+      <rect x="146" y="272" width="16" height="12" fill="#6ba840"/>
+      <rect x="450" y="340" width="6" height="32" fill="#5a4428"/>
+      <rect x="434" y="312" width="38" height="28" fill="#4a7a2a"/>
+      <rect x="440" y="298" width="26" height="14" fill="#5a8f35"/>
+      <rect x="800" y="336" width="8" height="36" fill="#5a4428"/>
+      <rect x="780" y="302" width="48" height="34" fill="#4a7a2a"/>
+      <rect x="788" y="286" width="32" height="16" fill="#5a8f35"/>
+      <rect x="796" y="274" width="16" height="12" fill="#6ba840"/>
+      <rect x="1100" y="340" width="6" height="32" fill="#5a4428"/>
+      <rect x="1084" y="314" width="38" height="26" fill="#4a7a2a"/>
+      <rect x="1090" y="300" width="26" height="14" fill="#5a8f35"/>
+      <rect x="80" y="364" width="4" height="8" fill="#6ba840"/>
+      <rect x="300" y="362" width="4" height="10" fill="#5a8f35"/>
+      <rect x="550" y="364" width="4" height="8" fill="#6ba840"/>
+      <rect x="720" y="362" width="4" height="10" fill="#5a8f35"/>
+      <rect x="1000" y="364" width="4" height="8" fill="#6ba840"/>
+      <rect x="220" y="360" width="4" height="12" fill="#5a8f35"/>
+      <rect x="218" y="356" width="8" height="4" fill="#c44a3c"/>
+      <rect x="700" y="360" width="4" height="12" fill="#5a8f35"/>
+      <rect x="698" y="356" width="8" height="4" fill="#d4a846"/>
+    </svg>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-pixel-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <span>Java 版 1.21/1.21.1</span>
+    </div>
+    <h1 class="hero-title"><span class="green">Future</span>Server</h1>
+    <p class="hero-subtitle">最纯粹的生存体验 · 等你来探索</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary btn-lg" onclick="copyIP()">
+        <svg viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        立即加入
+      </button>
+      <button class="btn btn-outline btn-lg" onclick="scrollToSection('gameplay')">了解玩法</button>
+    </div>
+    <div class="hero-ip-box">
+      <span class="hero-ip-label">服务器 IP：</span>
+      <span class="hero-ip-address" id="ipAddress">fs.lin114514.top</span>
+      <button class="copy-btn" id="copyBtn" onclick="copyIP()" aria-label="复制 IP">
+        <svg viewBox="0 0 24 24" id="copyIcon">
+          <rect x="9" y="9" width="13" height="13" rx="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <svg viewBox="0 0 24 24" id="checkIcon" style="display:none">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gameplay">
+  <div class="container">
+    <div class="text-center mb-14">
+      <div class="section-title-tag">GAMEPLAY</div>
+      <h2 class="section-title">服务器玩法</h2>
+      <p class="section-subtitle">多种玩法模式，总有一款适合你。生存挑战、创造自由、竞技对抗，尽情探索方块世界</p>
+    </div>
+    <div class="gameplay-grid">
+      <div class="gameplay-card pixel-corners">
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+        <div class="gameplay-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M14.79 10.62L3.5 21.91l-1.41-1.41L13.38 9.21"/>
+            <path d="M16.5 8.5l2 2 4-4-2-2-4 4z"/>
+          </svg>
+        </div>
+        <h3 class="gameplay-title">生存模式</h3>
+        <p class="gameplay-desc">经典生存玩法，挖矿建造冒险</p>
+        <div class="gameplay-placeholder">
+          <div class="placeholder-bar w-3-4"></div>
+          <div class="placeholder-bar w-1-2"></div>
+        </div>
+      </div>
+      <div class="gameplay-card pixel-corners">
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+        <div class="gameplay-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M8 3v3a2 2 0 0 1-2 2H3"/>
+            <path d="M21 8h-3a2 2 0 0 1-2-2V3"/>
+            <path d="M3 16h3a2 2 0 0 1 2 2v3"/>
+            <path d="M16 21v-3a2 2 0 0 1 2-2h3"/>
+            <rect x="7" y="7" width="10" height="10" rx="1"/>
+          </svg>
+        </div>
+        <h3 class="gameplay-title">创造模式</h3>
+        <p class="gameplay-desc">无限资源，自由发挥想象力</p>
+        <div class="gameplay-placeholder">
+          <div class="placeholder-bar w-3-4"></div>
+          <div class="placeholder-bar w-1-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="more-placeholder">
+      <div class="more-placeholder-box">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12h14"/>
+          <path d="M12 5v14"/>
+        </svg>
+        更多玩法持续更新中...
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="buildings">
+  <div class="container">
+    <div class="text-center mb-14">
+      <div class="section-title-tag" style="background-color:rgba(107,82,54,.6);border-color:var(--dirt-brown-light);color:var(--dirt-brown-light)">BUILDINGS</div>
+      <h2 class="section-title">服务器建筑</h2>
+      <p class="section-subtitle">玩家们用方块创造的奇迹，每一座建筑都凝聚着心血与创意</p>
+    </div>
+    <div class="buildings-grid">
+      <div class="building-card">
+        <span class="building-corner tl"></span>
+        <span class="building-corner tr"></span>
+        <div class="building-image">
+          <img src="https://static.lin114514.top/img/mc/fs/spawn-img.png" alt="主城" loading="lazy">
+        </div>
+        <div class="building-overlay"></div>
+        <div class="building-info">
+          <h3 class="building-title">主城</h3>
+          <p class="building-author">作者：多人</p>
+        </div>
+      </div>
+      <div class="building-card">
+        <span class="building-corner tl"></span>
+        <span class="building-corner tr"></span>
+        <div class="building-image">
+          <img src="https://picsum.photos/seed/minecraft_underground/400/300" alt="none" loading="lazy">
+        </div>
+        <div class="building-overlay"></div>
+        <div class="building-info">
+          <h3 class="building-title">等待建筑上新...</h3>
+          <p class="building-author">作者：null</p>
+        </div>
+      </div>
+      <div class="building-card">
+        <span class="building-corner tl"></span>
+        <span class="building-corner tr"></span>
+        <div class="building-image">
+          <img src="https://picsum.photos/seed/minecraft_redstone/400/300" alt="none" loading="lazy">
+        </div>
+        <div class="building-overlay"></div>
+        <div class="building-info">
+          <h3 class="building-title">等待建筑上新...</h3>
+          <p class="building-author">作者：null</p>
+        </div>
+      </div>
+    </div>
+<!--    <div class="view-more-btn">-->
+<!--      <button class="btn btn-lg">-->
+<!--        <svg viewBox="0 0 24 24">-->
+<!--          <rect x="2" y="3" width="20" height="18" rx="1"/>-->
+<!--          <path d="M3 9h18"/>-->
+<!--          <path d="M9 21V9"/>-->
+<!--        </svg>-->
+<!--        查看更多建筑-->
+<!--        <svg viewBox="0 0 24 24">-->
+<!--          <circle cx="12" cy="12" r="1"/>-->
+<!--          <circle cx="19" cy="12" r="1"/>-->
+<!--          <circle cx="5" cy="12" r="1"/>-->
+<!--        </svg>-->
+<!--      </button>-->
+<!--    </div>-->
+  </div>
+</section>
+
+<section class="section" id="rules">
+  <div class="container">
+    <div class="text-center mb-14">
+      <div class="section-title-tag" style="background-color:rgba(212,168,70,.2);border-color:var(--gold);color:var(--gold)">RULES</div>
+      <h2 class="section-title">服务器规则</h2>
+      <p class="section-subtitle">共同维护良好的游戏环境，让每位玩家都能享受愉快的方块之旅</p>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-card green">
+        <div class="rule-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="rule-title">账号安全</h3>
+        <ul class="rule-list">
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止共享账号或转借他人使用</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止使用外挂、作弊客户端</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止利用游戏漏洞获取利益</span>
+          </li>
+        </ul>
+        <div class="rule-placeholder">
+          <div class="placeholder-bar w-3-4"></div>
+          <div class="placeholder-bar w-1-2"></div>
+        </div>
+      </div>
+      <div class="rule-card brown">
+        <div class="rule-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3 class="rule-title">社区友善</h3>
+        <ul class="rule-list">
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">尊重他人，禁止人身攻击</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止发布违规、色情、暴力内容</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止恶意刷屏或广告推广</span>
+          </li>
+        </ul>
+        <div class="rule-placeholder">
+          <div class="placeholder-bar w-3-4"></div>
+          <div class="placeholder-bar w-1-2"></div>
+        </div>
+      </div>
+      <div class="rule-card red">
+        <div class="rule-icon">
+          <svg viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3 class="rule-title">游戏秩序</h3>
+        <ul class="rule-list">
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止恶意破坏他人建筑</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止偷窃他人物品</span>
+          </li>
+          <li class="rule-item">
+            <span class="rule-bullet"></span>
+            <span class="rule-text">禁止 PvP 骚扰非战斗区域玩家</span>
+          </li>
+        </ul>
+        <div class="rule-placeholder">
+          <div class="placeholder-bar w-3-4"></div>
+          <div class="placeholder-bar w-1-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grass"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14.79 10.62L3.5 21.91l-1.41-1.41L13.38 9.21"/>
+              <path d="M16.5 8.5l2 2 4-4-2-2-4 4z"/>
+              <path d="M12.5 12.5l-2-2L2 19l2 2 8.5-8.5z"/>
+            </svg>
+          </div>
+          <span class="logo-text">FutureServer</span>
+        </div>
+        <p class="footer-brand-desc">最纯粹的 Minecraft 体验<br>与万千玩家一起，建造属于你的世界</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul class="footer-links">
+          <li onclick="scrollToSection('gameplay')">服务器玩法</li>
+          <li onclick="scrollToSection('buildings')">服务器建筑</li>
+          <li onclick="scrollToSection('rules')">服务器规则</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>联系我们</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            群组：<a href="https://chat.cqiming.com/invite/6j3SBlAy">cqmChat</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            邮箱：fs@lin114514.top
+          </div>
+<!--          <div class="footer-contact-item">-->
+<!--            <svg viewBox="0 0 24 24">-->
+<!--              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>-->
+<!--              <circle cx="9" cy="7" r="4"/>-->
+<!--              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>-->
+<!--              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>-->
+<!--            </svg>-->
+<!--            Discord：暂无-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 FutureServer. All rights reserved.</p>
+      <p class="footer-disclaimer">Minecraft 是 Mojang Studios 的商标，本网站与 Mojang 无官方关联</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ========== Mobile Menu Toggle ========== */
+  function toggleMobileMenu() {
+    var nav = document.getElementById('navMobile');
+    var menuIcon = document.getElementById('menuIcon');
+    var closeIcon = document.getElementById('closeIcon');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      menuIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    } else {
+      nav.classList.add('open');
+      menuIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+    }
+  }
+
+  function closeMobileMenu() {
+    var nav = document.getElementById('navMobile');
+    var menuIcon = document.getElementById('menuIcon');
+    var closeIcon = document.getElementById('closeIcon');
+    nav.classList.remove('open');
+    menuIcon.style.display = 'block';
+    closeIcon.style.display = 'none';
+  }
+
+  /* ========== Scroll to Section ========== */
+  function scrollToSection(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      var headerHeight = 64;
+      var top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  }
+
+  /* ========== Copy IP ========== */
+  var copyTimer = null;
+
+  function copyIP() {
+    var ip = 'play.blockworld.cn';
+    var copyBtn = document.getElementById('copyBtn');
+    var copyIcon = document.getElementById('copyIcon');
+    var checkIcon = document.getElementById('checkIcon');
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ip).then(function() {
+        showCopiedState();
+      }).catch(function() {
+        fallbackCopy(ip);
+      });
+    } else {
+      fallbackCopy(ip);
+    }
+
+    function fallbackCopy(text) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showCopiedState();
+      } catch (e) {
+        // silently fail
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showCopiedState() {
+      if (copyBtn) copyBtn.classList.add('copied');
+      if (copyIcon) copyIcon.style.display = 'none';
+      if (checkIcon) checkIcon.style.display = 'block';
+      if (copyTimer) clearTimeout(copyTimer);
+      copyTimer = setTimeout(function() {
+        if (copyBtn) copyBtn.classList.remove('copied');
+        if (copyIcon) copyIcon.style.display = 'block';
+        if (checkIcon) checkIcon.style.display = 'none';
+      }, 2000);
+    }
+  }
+
+  /* ========== Header Scroll Effect ========== */
+  var header = document.getElementById('header');
+  var lastScroll = 0;
+
+  function onScroll() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    var sections = ['hero', 'gameplay', 'buildings', 'rules'];
+    var headerHeight = 80;
+    var activeSection = 'hero';
+
+    for (var i = 0; i < sections.length; i++) {
+      var section = document.getElementById(sections[i]);
+      if (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.top <= headerHeight && rect.bottom > headerHeight) {
+          activeSection = sections[i];
+        }
+        if (rect.top < headerHeight + 100 && rect.bottom > headerHeight) {
+          activeSection = sections[i];
+        }
+      }
+    }
+
+    if ((window.innerHeight + scrollY) >= document.body.offsetHeight - 10) {
+      activeSection = sections[sections.length - 1];
+    }
+
+    var navLinks = document.querySelectorAll('.nav-link');
+    for (var j = 0; j < navLinks.length; j++) {
+      var link = navLinks[j];
+      if (link.getAttribute('data-section') === activeSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    }
+
+    lastScroll = scrollY;
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  onScroll();
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        var id = href.substring(1);
+        var target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          scrollToSection(id);
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
